@@ -26,129 +26,172 @@
      ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Source+Serif+4:ital,opsz,wght@1,8..60,400&display=swap" rel="stylesheet">
 
 <style>
   #schol-page {
-    /* Palette from the 2027 Scholarship graphic */
-    --sc-navy: #142A52;
-    --sc-navy-deep: #0D1D3B;
-    --sc-slate: #303E5D;
-    --sc-plum: #5B5E7A;
-    --sc-teal: #9EC0C2;
-    --sc-mint: #B0DBD6;
-    --sc-mint-soft: #DBEFED;
-    --sc-mint-pale: #F3F9F7;
-    --sc-ink: #1A2338;
-    --sc-muted: #56607A;
-    --sc-line: #D5E2E2;
+    /* Palette from the 2027 Scholarships flyer */
+    --sc-red: #E91E2F;
+    --sc-red-dark: #B8121F;
+    --sc-black: #0B0B0C;
+    --sc-charcoal: #37393B;
+    --sc-steel: #C7D1D9;
+    --sc-steel-soft: #E6EBEF;
+    --sc-steel-pale: #F4F6F8;
+    --sc-ink: #1E2124;
+    --sc-muted: #55595E;
+    --sc-line: #D4DAE0;
     --sc-card: #FFFFFF;
+    /* Swap in the flyer photo here when available */
+    --sc-hero-photo: none;
 
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: var(--sc-ink);
     background: var(--sc-card);
     line-height: 1.6;
     font-size: 16px;
     max-width: 1140px;
     margin: 0 auto;
-    padding: 0 0 64px;
+    padding: 0 0 0;
     box-sizing: border-box;
   }
   #schol-page *, #schol-page *::before, #schol-page *::after { box-sizing: border-box; }
   #schol-page h2, #schol-page h3, #schol-page h4 {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
     margin: 0;
     line-height: 1.2;
-    color: var(--sc-navy);
-    letter-spacing: -0.01em;
+    color: var(--sc-charcoal);
   }
   #schol-page p { margin: 0 0 10px; }
-  #schol-page a { color: var(--sc-navy); text-underline-offset: 3px; }
+  #schol-page a { color: var(--sc-red-dark); text-underline-offset: 3px; }
   #schol-page ul { margin: 0; padding: 0; list-style: none; }
   #schol-page .sc-eyebrow {
     display: block;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: .14em;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .16em;
     text-transform: uppercase;
-    color: var(--sc-plum);
-    margin-bottom: 8px;
+    color: var(--sc-red);
+    margin-bottom: 6px;
   }
 
   /* ---------- Hero ---------- */
   #schol-page .sc-hero {
     position: relative;
-    background: var(--sc-navy);
+    background-color: var(--sc-black);
+    background-image:
+      linear-gradient(90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.35) 100%),
+      var(--sc-hero-photo),
+      radial-gradient(circle at 78% 30%, rgba(214,132,40,.55), transparent 38%),
+      radial-gradient(circle at 92% 80%, rgba(190,98,24,.45), transparent 30%),
+      radial-gradient(circle at 55% 10%, rgba(232,160,70,.35), transparent 28%),
+      linear-gradient(135deg, #1a120b, #3a2412 55%, #1a120b);
+    background-size: cover;
+    background-position: center;
     color: #fff;
-    padding: 64px 48px 56px 120px;
+    padding: 56px 260px 52px 48px;
+    border-bottom: 10px solid var(--sc-black);
     overflow: hidden;
   }
-  /* Stripe band echoing the graphic */
-  #schol-page .sc-hero::before {
-    content: "";
-    position: absolute;
-    left: 32px; top: 0; bottom: 0;
-    width: 56px;
-    background: linear-gradient(90deg,
-      var(--sc-mint) 0 25%, var(--sc-teal) 25% 50%,
-      var(--sc-slate) 50% 75%, var(--sc-plum) 75% 100%);
-    opacity: .9;
+  #schol-page .sc-motto {
+    display: block;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: #E8EAEC;
+    word-spacing: .3em;
+    margin-bottom: 18px;
   }
-  #schol-page .sc-hero .sc-eyebrow { color: var(--sc-mint); }
-  #schol-page .sc-hero h2 {
-    color: #fff;
-    font-size: clamp(34px, 5vw, 52px);
-    margin-bottom: 14px;
+  #schol-page .sc-hero h2 { color: #fff; margin: 0; }
+  #schol-page .sc-h-year {
+    display: block;
+    font-weight: 800;
+    font-size: clamp(40px, 7vw, 78px);
+    line-height: 1;
+    letter-spacing: .02em;
+  }
+  #schol-page .sc-h-big {
+    display: block;
+    font-family: 'Alfa Slab One', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(36px, 8.6vw, 96px);
+    line-height: 1.02;
+    color: var(--sc-red);
+    -webkit-text-stroke: 2px #fff;
+    paint-order: stroke fill;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+  }
+  #schol-page .sc-rule {
+    height: 14px;
+    max-width: 640px;
+    margin: 18px 0 22px;
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
   }
   #schol-page .sc-hero-sub {
     font-size: 18px;
     max-width: 600px;
-    color: #C9D4E6;
-    margin-bottom: 28px;
-  }
-  #schol-page .sc-deadline {
-    display: inline-flex;
-    flex-direction: column;
-    border-left: 3px solid var(--sc-mint);
-    padding: 2px 0 2px 16px;
-  }
-  #schol-page .sc-deadline small {
-    font-size: 12px;
-    letter-spacing: .14em;
+    color: #F1F2F3;
+    margin-bottom: 26px;
     text-transform: uppercase;
-    color: var(--sc-teal);
-    font-weight: 600;
+    letter-spacing: .04em;
+    line-height: 1.5;
   }
-  #schol-page .sc-deadline strong {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 24px;
-    font-weight: 600;
+  #schol-page .sc-pennant {
+    position: absolute;
+    top: 0; right: 40px;
+    width: 190px; height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 36px;
     color: #fff;
+    text-align: center;
+  }
+  #schol-page .sc-pennant svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #schol-page .sc-pennant small {
+    position: relative;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  #schol-page .sc-pennant strong span { display: block; }
+  #schol-page .sc-pennant strong {
+    position: relative;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.1;
+    margin-top: 10px;
   }
 
   /* ---------- Stats strip ---------- */
   #schol-page .sc-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background: var(--sc-mint-soft);
-    border-bottom: 1px solid var(--sc-line);
+    background: var(--sc-steel);
   }
   #schol-page .sc-stat {
     padding: 22px 28px;
-    border-right: 1px solid var(--sc-line);
+    border-right: 2px solid rgba(255,255,255,.7);
   }
   #schol-page .sc-stat:last-child { border-right: 0; }
   #schol-page .sc-stat strong {
     display: block;
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--sc-navy);
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--sc-black);
     line-height: 1.1;
   }
-  #schol-page .sc-stat span { font-size: 14px; color: var(--sc-muted); }
+  #schol-page .sc-stat span {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--sc-charcoal);
+  }
 
   /* ---------- Jump nav ---------- */
   #schol-page .sc-jump {
@@ -156,28 +199,35 @@
     flex-wrap: wrap;
     gap: 4px 28px;
     padding: 16px 48px;
-    border-bottom: 1px solid var(--sc-line);
+    background: var(--sc-black);
   }
   #schol-page .sc-jump a {
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
     text-decoration: none;
-    color: var(--sc-slate);
+    color: #fff;
     padding: 4px 0;
-    border-bottom: 2px solid transparent;
-    transition: border-color .15s ease, color .15s ease;
+    border-bottom: 3px solid transparent;
+    transition: border-color .15s ease;
   }
-  #schol-page .sc-jump a:hover { color: var(--sc-navy); border-bottom-color: var(--sc-mint); }
+  #schol-page .sc-jump a:hover { border-bottom-color: var(--sc-red); }
 
   /* ---------- Sections ---------- */
   #schol-page .sc-section { padding: 64px 48px 0; scroll-margin-top: 120px; }
-  #schol-page .sc-section-head { margin-bottom: 32px; max-width: 720px; }
-  #schol-page .sc-section-head h2 { font-size: clamp(28px, 3.6vw, 36px); }
-  #schol-page .sc-section-head p { color: var(--sc-muted); margin: 12px 0 0; font-size: 17px; }
+  #schol-page .sc-section-head { margin-bottom: 30px; max-width: 760px; }
+  #schol-page .sc-section-head h2 {
+    font-size: clamp(26px, 3.4vw, 34px);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+  #schol-page .sc-section-head p { color: var(--sc-muted); margin: 14px 0 0; font-size: 17px; }
   #schol-page .sc-bar {
-    width: 48px; height: 3px;
-    background: var(--sc-mint);
-    margin: 16px 0 0;
+    width: 120px; height: 10px;
+    border-top: 3px solid var(--sc-red);
+    border-bottom: 3px solid var(--sc-red);
+    margin: 14px 0 0;
   }
 
   /* ---------- Buttons ---------- */
@@ -186,28 +236,33 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
+    font-style: italic;
     font-size: 15px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 13px 22px;
-    border: 1px solid transparent;
+    border: 3px solid transparent;
     cursor: pointer;
     line-height: 1.1;
     transition: background .15s ease, color .15s ease, border-color .15s ease;
   }
-  #schol-page .sc-btn-primary { background: var(--sc-navy); color: #fff; }
-  #schol-page .sc-btn-primary:hover { background: var(--sc-navy-deep); color: #fff; }
-  #schol-page .sc-btn-primary .sc-arrow { color: var(--sc-mint); }
+  #schol-page .sc-btn-primary { background: var(--sc-black); color: #fff; box-shadow: 0 0 0 2px var(--sc-black); border-color: #fff; }
+  #schol-page .sc-btn-primary:hover { background: var(--sc-red); color: #fff; }
+  #schol-page .sc-btn-primary .sc-arrow { color: var(--sc-red); font-style: normal; }
+  #schol-page .sc-btn-primary:hover .sc-arrow { color: #fff; }
+  #schol-page .sc-btn-hero { background: var(--sc-black); color: #fff; border-color: #fff; }
+  #schol-page .sc-btn-hero:hover { background: var(--sc-red); color: #fff; }
   #schol-page .sc-btn-outline {
     background: #fff;
-    color: var(--sc-navy);
-    border-color: var(--sc-navy);
+    color: var(--sc-black);
+    border: 2px solid var(--sc-black);
   }
-  #schol-page .sc-btn-outline:hover { background: var(--sc-navy); color: #fff; }
-  #schol-page .sc-btn-give { background: var(--sc-mint); color: var(--sc-navy-deep); border-color: var(--sc-mint); }
-  #schol-page .sc-btn-give:hover { background: var(--sc-teal); border-color: var(--sc-teal); color: var(--sc-navy-deep); }
+  #schol-page .sc-btn-outline:hover { background: var(--sc-black); color: #fff; }
+  #schol-page .sc-btn-give { background: var(--sc-red); color: #fff; border-color: var(--sc-red); }
+  #schol-page .sc-btn-give:hover { background: var(--sc-red-dark); border-color: var(--sc-red-dark); color: #fff; }
 
   /* ---------- Apply cards ---------- */
   #schol-page .sc-apply-grid {
@@ -218,67 +273,100 @@
   #schol-page .sc-apply-card {
     background: var(--sc-card);
     border: 1px solid var(--sc-line);
-    border-top: 4px solid var(--sc-mint);
-    border-radius: 4px;
+    border-top: 8px solid var(--sc-red);
+    border-radius: 6px;
     padding: 32px;
     display: flex;
     flex-direction: column;
     gap: 4px;
   }
-  #schol-page .sc-apply-card.sc-ug { border-top-color: var(--sc-navy); }
-  #schol-page .sc-apply-card h3 { font-size: 28px; margin-bottom: 4px; }
+  #schol-page .sc-apply-card.sc-ug { border-top-color: var(--sc-black); }
+  #schol-page .sc-apply-card .sc-eyebrow { color: var(--sc-muted); }
+  #schol-page .sc-apply-card h3 { font-size: 30px; margin-bottom: 4px; }
   #schol-page .sc-apply-card p { color: var(--sc-muted); flex: 1; }
-  #schol-page .sc-apply-card .sc-btn { align-self: flex-start; margin-top: 12px; }
+  #schol-page .sc-apply-card .sc-btn { align-self: flex-start; margin-top: 14px; }
+  #schol-page .sc-amount { font-weight: 800; color: var(--sc-black); }
 
-  /* ---------- Before you apply ---------- */
+  /* ---------- Before you apply (steel band, like the flyer) ---------- */
+  #schol-page #sc-prep {
+    background: var(--sc-steel);
+    margin-top: 64px;
+    padding-bottom: 56px;
+  }
+  #schol-page #sc-prep .sc-section-head h2 { color: var(--sc-black); }
   #schol-page .sc-prep-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
   #schol-page .sc-panel {
-    background: var(--sc-mint-pale);
-    border: 1px solid var(--sc-line);
-    border-radius: 4px;
-    padding: 30px 32px;
+    background: rgba(255,255,255,.35);
+    border: 6px solid #fff;
+    border-radius: 18px;
+    padding: 28px 30px;
   }
-  #schol-page .sc-panel h3 { font-size: 22px; margin-bottom: 18px; }
+  #schol-page .sc-panel h3 {
+    font-size: 18px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #fff;
+    margin-bottom: 18px;
+  }
   #schol-page .sc-list li {
     position: relative;
-    padding-left: 28px;
+    padding-left: 34px;
     margin-bottom: 12px;
+    color: var(--sc-charcoal);
   }
   #schol-page .sc-list li::before {
     content: "";
     position: absolute;
-    left: 2px; top: 6px;
-    width: 12px; height: 7px;
-    border-left: 2px solid var(--sc-navy);
-    border-bottom: 2px solid var(--sc-navy);
+    left: 0; top: 2px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--sc-charcoal);
+  }
+  #schol-page .sc-list li::after {
+    content: "";
+    position: absolute;
+    left: 7px; top: 8px;
+    width: 9px; height: 5px;
+    border-left: 2.5px solid #fff;
+    border-bottom: 2.5px solid #fff;
     transform: rotate(-45deg);
   }
   #schol-page .sc-checklist li::before {
-    left: 0; top: 4px;
-    width: 15px; height: 15px;
-    border: 1.5px solid var(--sc-plum);
-    border-radius: 2px;
-    transform: none;
+    border-radius: 4px;
     background: #fff;
+    border: 2px solid var(--sc-charcoal);
   }
+  #schol-page .sc-checklist li::after { display: none; }
   #schol-page .sc-note {
     font-size: 14px;
-    color: var(--sc-muted);
-    border-top: 1px solid var(--sc-line);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--sc-charcoal);
+    border-top: 3px solid #fff;
     padding-top: 14px;
-    margin: 8px 0 0;
+    margin: 10px 0 0;
+  }
+  #schol-page .sc-fine {
+    margin: 22px 0 0;
+    font-size: 14px;
+    color: var(--sc-charcoal);
   }
   #schol-page .sc-contact {
     margin-top: 24px;
-    border-left: 3px solid var(--sc-mint);
-    padding: 4px 0 4px 18px;
-    color: var(--sc-muted);
+    background: var(--sc-black);
+    color: #fff;
+    border-radius: 6px;
+    padding: 16px 22px;
+    font-weight: 600;
+    letter-spacing: .02em;
   }
   #schol-page .sc-contact p { margin: 0; }
+  #schol-page .sc-contact a { color: #fff; }
 
   /* ---------- Scholarship toolbar ---------- */
   #schol-page .sc-toolbar {
@@ -293,25 +381,27 @@
     font: inherit;
     font-size: 15px;
     padding: 12px 14px;
-    border: 1px solid var(--sc-line);
-    border-radius: 4px;
+    border: 2px solid var(--sc-steel);
+    border-radius: 8px;
     background: #fff;
     color: var(--sc-ink);
   }
-  #schol-page .sc-search:focus { outline: 2px solid var(--sc-mint); outline-offset: 0; border-color: var(--sc-navy); }
-  #schol-page .sc-filters { display: flex; border: 1px solid var(--sc-navy); border-radius: 4px; overflow: hidden; }
+  #schol-page .sc-search:focus { outline: none; border-color: var(--sc-black); }
+  #schol-page .sc-filters { display: flex; border: 2px solid var(--sc-black); border-radius: 8px; overflow: hidden; }
   #schol-page .sc-chip {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
     padding: 11px 16px;
     border: 0;
     background: #fff;
-    color: var(--sc-navy);
+    color: var(--sc-black);
     cursor: pointer;
   }
-  #schol-page .sc-chip + .sc-chip { border-left: 1px solid var(--sc-navy); }
-  #schol-page .sc-chip[aria-pressed="true"] { background: var(--sc-navy); color: #fff; }
+  #schol-page .sc-chip + .sc-chip { border-left: 2px solid var(--sc-black); }
+  #schol-page .sc-chip[aria-pressed="true"] { background: var(--sc-black); color: #fff; }
   #schol-page .sc-count { width: 100%; margin: 0; font-size: 14px; color: var(--sc-muted); }
 
   /* ---------- Scholarship cards ---------- */
@@ -324,11 +414,14 @@
   #schol-page .sc-card {
     background: var(--sc-card);
     border: 1px solid var(--sc-line);
-    border-radius: 4px;
+    border-left: 5px solid var(--sc-steel);
+    border-radius: 6px;
     transition: border-color .15s ease, box-shadow .15s ease;
   }
-  #schol-page .sc-card:hover { border-color: var(--sc-teal); }
-  #schol-page .sc-card[open] { border-color: var(--sc-navy); box-shadow: 0 10px 28px rgba(20, 42, 82, .10); }
+  #schol-page .sc-card[data-donate] { border-left-color: var(--sc-red); }
+  #schol-page .sc-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+  #schol-page .sc-card[open] { border-color: var(--sc-black); box-shadow: 0 10px 28px rgba(0,0,0,.12); }
+  #schol-page .sc-card[data-donate][open] { border-left-color: var(--sc-red); }
   #schol-page .sc-card summary {
     list-style: none;
     cursor: pointer;
@@ -339,13 +432,12 @@
     gap: 4px;
   }
   #schol-page .sc-card summary::-webkit-details-marker { display: none; }
-  #schol-page .sc-card summary:focus-visible { outline: 2px solid var(--sc-mint); outline-offset: 2px; }
+  #schol-page .sc-card summary:focus-visible { outline: 3px solid var(--sc-red); outline-offset: 2px; }
   #schol-page .sc-name {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-weight: 600;
-    font-size: 19px;
+    font-weight: 700;
+    font-size: 18px;
     line-height: 1.25;
-    color: var(--sc-navy);
+    color: var(--sc-black);
   }
   #schol-page .sc-tag { font-size: 14px; color: var(--sc-muted); line-height: 1.4; }
   #schol-page .sc-badge {
@@ -353,53 +445,48 @@
     align-items: center;
     gap: 7px;
     margin-top: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .06em;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    color: var(--sc-slate);
+    color: var(--sc-red-dark);
   }
   #schol-page .sc-badge::before {
     content: "";
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: var(--sc-teal);
-    box-shadow: 0 0 0 3px var(--sc-mint-soft);
+    background: var(--sc-red);
   }
   #schol-page .sc-toggle {
     position: absolute;
     right: 20px; top: 24px;
     width: 9px; height: 9px;
-    border-right: 2px solid var(--sc-navy);
-    border-bottom: 2px solid var(--sc-navy);
+    border-right: 2.5px solid var(--sc-black);
+    border-bottom: 2.5px solid var(--sc-black);
     transform: rotate(45deg);
     transition: transform .2s ease;
   }
   #schol-page .sc-card[open] .sc-toggle { transform: rotate(-135deg); top: 28px; }
   #schol-page .sc-body {
     font-size: 15px;
-    color: #2C3550;
+    color: var(--sc-charcoal);
     border-top: 1px solid var(--sc-line);
     margin: 0 20px;
     padding: 16px 0 20px;
   }
   #schol-page .sc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
-  #schol-page .sc-actions .sc-btn { font-size: 14px; padding: 10px 14px; }
-  #schol-page .sc-empty {
-    display: none;
-    color: var(--sc-muted);
-    padding: 30px 0;
-  }
+  #schol-page .sc-actions .sc-btn { font-size: 12px; padding: 10px 14px; }
+  #schol-page .sc-empty { display: none; color: var(--sc-muted); padding: 30px 0; }
 
-  /* ---------- Give ---------- */
+  /* ---------- Give (black band, like the flyer footer) ---------- */
   #schol-page #sc-give {
-    background: var(--sc-navy);
+    background: var(--sc-black);
     margin-top: 72px;
     padding-bottom: 56px;
   }
   #schol-page #sc-give .sc-section-head h2 { color: #fff; }
-  #schol-page #sc-give .sc-section-head p { color: #C9D4E6; }
-  #schol-page #sc-give .sc-eyebrow { color: var(--sc-mint); }
+  #schol-page #sc-give .sc-section-head p { color: #C9CDD1; }
+  #schol-page #sc-give .sc-bar { border-color: var(--sc-red); }
   #schol-page .sc-give-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -407,76 +494,95 @@
   }
   #schol-page .sc-give-card {
     background: var(--sc-card);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 28px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
   }
-  #schol-page .sc-give-card h3 { font-size: 22px; }
+  #schol-page .sc-give-card h3 { font-size: 16px; letter-spacing: .1em; text-transform: uppercase; }
   #schol-page .sc-give-card p { color: var(--sc-muted); margin: 0; }
   #schol-page .sc-give-card .sc-btn { margin-top: auto; }
   #schol-page .sc-venmo img { width: 110px; height: auto; display: block; border-radius: 4px; border: 1px solid var(--sc-line); }
   #schol-page .sc-address {
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--sc-ink);
     line-height: 1.5;
     margin-top: auto;
   }
   #schol-page .sc-pennies {
     margin-top: 20px;
-    background: var(--sc-mint-soft);
-    border-radius: 4px;
-    padding: 26px 30px;
+    background: var(--sc-steel);
+    border: 6px solid #fff;
+    border-radius: 18px;
+    padding: 24px 28px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 16px 28px;
   }
   #schol-page .sc-pennies-text { flex: 1 1 380px; }
-  #schol-page .sc-pennies h3 { font-size: 22px; margin-bottom: 6px; }
-  #schol-page .sc-pennies p { margin: 0; color: var(--sc-slate); }
+  #schol-page .sc-pennies h3 { font-size: 20px; color: var(--sc-black); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; }
+  #schol-page .sc-pennies p { margin: 0; color: var(--sc-charcoal); }
   #schol-page .sc-live {
     display: none;
-    font-family: 'Inter', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
-    background: var(--sc-navy);
-    color: var(--sc-mint);
+    background: var(--sc-red);
+    color: #fff;
     padding: 4px 9px;
     border-radius: 3px;
     margin-left: 8px;
     vertical-align: middle;
   }
-  #schol-page .sc-endow {
-    margin: 28px 0 0;
-    color: #C9D4E6;
-    max-width: 760px;
-  }
+  #schol-page .sc-endow { margin: 28px 0 0; color: #C9CDD1; max-width: 760px; }
   #schol-page .sc-endow strong { color: #fff; }
-  #schol-page .sc-endow a { color: var(--sc-mint); }
+  #schol-page .sc-endow a { color: #fff; }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 900px) {
     #schol-page .sc-grid { grid-template-columns: repeat(2, 1fr); }
     #schol-page .sc-give-grid { grid-template-columns: 1fr; }
+    #schol-page .sc-hero { padding-right: 210px; }
+    #schol-page .sc-pennant { right: 20px; width: 160px; height: 220px; }
+    #schol-page .sc-pennant strong { font-size: 32px; }
   }
   @media (max-width: 680px) {
-    #schol-page .sc-hero { padding: 44px 20px 40px 68px; }
-    #schol-page .sc-hero::before { left: 16px; width: 32px; }
+    #schol-page .sc-hero { padding: 36px 20px 40px; }
+    #schol-page .sc-pennant {
+      position: static;
+      width: auto; height: auto;
+      flex-direction: row;
+      gap: 10px;
+      align-items: baseline;
+      justify-content: flex-start;
+      padding: 10px 14px;
+      margin: 14px 0 0;
+      border: 3px solid #fff;
+      border-radius: 8px;
+      display: inline-flex;
+    }
+    #schol-page .sc-pennant svg { display: none; }
+    #schol-page .sc-pennant { background: var(--sc-black); }
+    #schol-page .sc-pennant strong { font-size: 20px; margin: 0; }
+    #schol-page .sc-pennant strong span { display: inline; }
+    #schol-page .sc-pennant strong span + span::before { content: ", "; }
+    #schol-page .sc-h-big { font-size: 9.4vw; -webkit-text-stroke: 1px #fff; }
+    #schol-page .sc-hero-sub { font-size: 15px; }
     #schol-page .sc-stats { grid-template-columns: 1fr; }
-    #schol-page .sc-stat { border-right: 0; border-bottom: 1px solid var(--sc-line); padding: 16px 20px; }
+    #schol-page .sc-stat { border-right: 0; border-bottom: 2px solid rgba(255,255,255,.7); padding: 16px 20px; }
     #schol-page .sc-stat:last-child { border-bottom: 0; }
     #schol-page .sc-jump { padding: 12px 20px; gap: 4px 18px; }
     #schol-page .sc-section { padding: 48px 20px 0; }
+    #schol-page #sc-prep { margin-top: 48px; padding-bottom: 40px; }
     #schol-page .sc-apply-grid,
     #schol-page .sc-prep-grid,
     #schol-page .sc-grid { grid-template-columns: 1fr; }
-    #schol-page .sc-apply-card, #schol-page .sc-panel { padding: 24px; }
+    #schol-page .sc-apply-card, #schol-page .sc-panel { padding: 22px; }
     #schol-page .sc-filters { width: 100%; }
     #schol-page .sc-chip { flex: 1; }
   }
@@ -486,19 +592,25 @@
 
   <!-- ========== Hero ========== -->
   <header class="sc-hero">
-    <span class="sc-eyebrow">2027 Scholarship Season</span>
-    <h2>SPJST Scholarships</h2>
-    <p class="sc-hero-sub">Helping SPJST members further their education and reach their career goals since 1982.</p>
-    <div class="sc-deadline">
-      <small>Application deadline</small>
-      <strong>February 1, 2027</strong>
+    <span class="sc-motto">Enrich · Educate · Excel</span>
+    <h2><span class="sc-h-year">SPJST 2027</span><span class="sc-h-big">Scholarships</span></h2>
+    <div class="sc-rule"></div>
+    <p class="sc-hero-sub">Achieve your education and career goals with the SPJST Scholarship Program. Applications for the 2027 season are now open online.</p>
+    <a class="sc-btn sc-btn-hero" href="#sc-apply">Applications now open <span aria-hidden="true">→</span></a>
+    <div class="sc-pennant">
+      <svg viewBox="0 0 190 260" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="0,0 190,0 190,190 95,260 0,190" fill="#0B0B0C"/>
+        <polyline points="14,0 14,183 95,242 176,183 176,0" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+      </svg>
+      <small>Applications due:</small>
+      <strong><span>Feb. 1</span><span>2027</span></strong>
     </div>
   </header>
 
   <div class="sc-stats">
+    <div class="sc-stat"><strong>$1,000</strong><span>Scholarships for freshmen &amp; undergrads</span></div>
+    <div class="sc-stat"><strong class="sc-named-count">29</strong><span>Named scholarships</span></div>
     <div class="sc-stat"><strong>Since 1982</strong><span>Supporting SPJST students</span></div>
-    <div class="sc-stat"><strong class="sc-named-count">26</strong><span>Named scholarships</span></div>
-    <div class="sc-stat"><strong>100%</strong><span>Of 100 Pennies gifts go to scholarships</span></div>
   </div>
 
   <nav class="sc-jump" aria-label="On this page">
@@ -519,13 +631,13 @@
       <div class="sc-apply-card">
         <span class="sc-eyebrow">High school seniors</span>
         <h3>Freshman</h3>
-        <p>For SPJST members graduating high school in May or June 2027 and starting college in the fall.</p>
+        <p>For SPJST members graduating high school in May or June 2027 and starting college in the fall. Awards are <span class="sc-amount">$1,000</span>.</p>
         <a class="sc-btn sc-btn-primary" href="https://form.jotform.com/spjst_life/2027-fr-scholarship-app" target="_blank" rel="noopener">Start Freshman Application <span class="sc-arrow">→</span></a>
       </div>
       <div class="sc-apply-card sc-ug">
         <span class="sc-eyebrow">College students</span>
         <h3>Undergraduate</h3>
-        <p>For SPJST members who are enrolled in college now or have been enrolled before.</p>
+        <p>For SPJST members who are enrolled in college now or have been enrolled before. Awards are <span class="sc-amount">$1,000</span>.</p>
         <a class="sc-btn sc-btn-primary" href="https://form.jotform.com/spjst_life/2027-scholarship-app-UG" target="_blank" rel="noopener">Start Undergraduate Application <span class="sc-arrow">→</span></a>
       </div>
     </div>
@@ -540,14 +652,16 @@
     </div>
     <div class="sc-prep-grid">
       <div class="sc-panel">
-        <h3>Who can apply</h3>
+        <h3>Eligibility requirements</h3>
         <ul class="sc-list">
-          <li>SPJST members with an active insurance certificate in force for at least one year as of February 1, 2027 (annuities must be at least $10,000)</li>
-          <li>Full-time students, enrolled in at least 12 credit hours per semester</li>
-          <li>Attending an accredited two- or four-year college, university or technical school</li>
-          <li><strong>Undergraduates:</strong> you must not have received an SPJST Scholarship before (State/District Merit and State Royalty Scholarships don't count)</li>
+          <li>Be of upstanding moral character</li>
+          <li>Have an active SPJST insurance certificate in force for at least one year as of February 1, 2027 (annuities must be at least $10,000)</li>
+          <li>Enroll as a full-time student, with at least 12 credit hours per semester</li>
+          <li>Attend an accredited two- or four-year college, university or technical school (trade schools are considered case by case)</li>
+          <li>Keep an active SPJST insurance certificate and/or annuity for the duration of the scholarship</li>
+          <li><strong>Undergraduates:</strong> must not have received an SPJST Scholarship before (State/District Merit and State Royalty Scholarships don't count)</li>
         </ul>
-        <p class="sc-note">The full requirements are listed at the top of each application.</p>
+        <p class="sc-note">In every case, scholarship money is paid to the school, not directly to the student.</p>
       </div>
       <div class="sc-panel">
         <h3>Have these ready</h3>
@@ -561,6 +675,7 @@
         </ul>
       </div>
     </div>
+    <p class="sc-fine"><strong>Military service:</strong> If a recipient chooses military service instead of college, the scholarship is forfeited and the funds go to an "SPJST Freedom Fund" in the student's name, available for reassignment or withdrawal on the basis of need or upon honorable discharge.</p>
     <div class="sc-contact">
       <p>Questions? Contact Sandra Dubcak at <a href="tel:2547731575">254-773-1575, ext. 127</a> or <a href="mailto:sandrad@spjst.com">sandrad@spjst.com</a>.</p>
     </div>
