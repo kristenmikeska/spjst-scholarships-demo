@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SPJST Scholarships — Demo</title>
+<style>body{margin:0;background:#fff}</style>
+</head>
+<body>
+<div style="background:#FFF6D6;border-bottom:1px solid #E8D58A;color:#4A3B00;font:600 14px/1.4 Inter,system-ui,sans-serif;text-align:center;padding:10px 16px">Demo preview for review &mdash; not the live SPJST website. </div>
+<!-- ============================================================
+     SPJST Scholarships — WordPress embed
+     Everything is scoped under #schol-page so it won't clash with the theme.
+
+     Each year:
+       • Update the deadline (search "February 1, 2027") and the two Jotform links.
+
+     To add a named scholarship:
+       • Copy any <details class="sc-card"> block in "Our Scholarships" and paste it
+         anywhere in the grid. Cards sort themselves by the data-sort value (last name).
+       • Fill in the name, tagline (one short line) and blurb (about 60–90 words).
+       • If it has its own story page, add the "Read the full story" button.
+       • If it takes donations, add data-donate to the <details> tag, the
+         "Accepting donations" badge, and the "Give to this fund" button.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  #schol-page {
+    /* Palette from the 2027 Scholarship graphic */
+    --sc-navy: #142A52;
+    --sc-navy-deep: #0D1D3B;
+    --sc-slate: #303E5D;
+    --sc-plum: #5B5E7A;
+    --sc-teal: #9EC0C2;
+    --sc-mint: #B0DBD6;
+    --sc-mint-soft: #DBEFED;
+    --sc-mint-pale: #F3F9F7;
+    --sc-ink: #1A2338;
+    --sc-muted: #56607A;
+    --sc-line: #D5E2E2;
+    --sc-card: #FFFFFF;
+
+    font-family: 'Inter', sans-serif;
+    color: var(--sc-ink);
+    background: var(--sc-card);
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 0 64px;
+    box-sizing: border-box;
+  }
+  #schol-page *, #schol-page *::before, #schol-page *::after { box-sizing: border-box; }
+  #schol-page h2, #schol-page h3, #schol-page h4 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+    color: var(--sc-navy);
+    letter-spacing: -0.01em;
+  }
+  #schol-page p { margin: 0 0 10px; }
+  #schol-page a { color: var(--sc-navy); text-underline-offset: 3px; }
+  #schol-page ul { margin: 0; padding: 0; list-style: none; }
+  #schol-page .sc-eyebrow {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--sc-plum);
+    margin-bottom: 8px;
+  }
+
+  /* ---------- Hero ---------- */
+  #schol-page .sc-hero {
+    position: relative;
+    background: var(--sc-navy);
+    color: #fff;
+    padding: 64px 48px 56px 120px;
+    overflow: hidden;
+  }
+  /* Stripe band echoing the graphic */
+  #schol-page .sc-hero::before {
+    content: "";
+    position: absolute;
+    left: 32px; top: 0; bottom: 0;
+    width: 56px;
+    background: linear-gradient(90deg,
+      var(--sc-mint) 0 25%, var(--sc-teal) 25% 50%,
+      var(--sc-slate) 50% 75%, var(--sc-plum) 75% 100%);
+    opacity: .9;
+  }
+  #schol-page .sc-hero .sc-eyebrow { color: var(--sc-mint); }
+  #schol-page .sc-hero h2 {
+    color: #fff;
+    font-size: clamp(34px, 5vw, 52px);
+    margin-bottom: 14px;
+  }
+  #schol-page .sc-hero-sub {
+    font-size: 18px;
+    max-width: 600px;
+    color: #C9D4E6;
+    margin-bottom: 28px;
+  }
+  #schol-page .sc-deadline {
+    display: inline-flex;
+    flex-direction: column;
+    border-left: 3px solid var(--sc-mint);
+    padding: 2px 0 2px 16px;
+  }
+  #schol-page .sc-deadline small {
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--sc-teal);
+    font-weight: 600;
+  }
+  #schol-page .sc-deadline strong {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ---------- Stats strip ---------- */
+  #schol-page .sc-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--sc-mint-soft);
+    border-bottom: 1px solid var(--sc-line);
+  }
+  #schol-page .sc-stat {
+    padding: 22px 28px;
+    border-right: 1px solid var(--sc-line);
+  }
+  #schol-page .sc-stat:last-child { border-right: 0; }
+  #schol-page .sc-stat strong {
+    display: block;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--sc-navy);
+    line-height: 1.1;
+  }
+  #schol-page .sc-stat span { font-size: 14px; color: var(--sc-muted); }
+
+  /* ---------- Jump nav ---------- */
+  #schol-page .sc-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 28px;
+    padding: 16px 48px;
+    border-bottom: 1px solid var(--sc-line);
+  }
+  #schol-page .sc-jump a {
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--sc-slate);
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  #schol-page .sc-jump a:hover { color: var(--sc-navy); border-bottom-color: var(--sc-mint); }
+
+  /* ---------- Sections ---------- */
+  #schol-page .sc-section { padding: 64px 48px 0; scroll-margin-top: 120px; }
+  #schol-page .sc-section-head { margin-bottom: 32px; max-width: 720px; }
+  #schol-page .sc-section-head h2 { font-size: clamp(28px, 3.6vw, 36px); }
+  #schol-page .sc-section-head p { color: var(--sc-muted); margin: 12px 0 0; font-size: 17px; }
+  #schol-page .sc-bar {
+    width: 48px; height: 3px;
+    background: var(--sc-mint);
+    margin: 16px 0 0;
+  }
+
+  /* ---------- Buttons ---------- */
+  #schol-page .sc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 13px 22px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    line-height: 1.1;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  #schol-page .sc-btn-primary { background: var(--sc-navy); color: #fff; }
+  #schol-page .sc-btn-primary:hover { background: var(--sc-navy-deep); color: #fff; }
+  #schol-page .sc-btn-primary .sc-arrow { color: var(--sc-mint); }
+  #schol-page .sc-btn-outline {
+    background: #fff;
+    color: var(--sc-navy);
+    border-color: var(--sc-navy);
+  }
+  #schol-page .sc-btn-outline:hover { background: var(--sc-navy); color: #fff; }
+  #schol-page .sc-btn-give { background: var(--sc-mint); color: var(--sc-navy-deep); border-color: var(--sc-mint); }
+  #schol-page .sc-btn-give:hover { background: var(--sc-teal); border-color: var(--sc-teal); color: var(--sc-navy-deep); }
+
+  /* ---------- Apply cards ---------- */
+  #schol-page .sc-apply-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  #schol-page .sc-apply-card {
+    background: var(--sc-card);
+    border: 1px solid var(--sc-line);
+    border-top: 4px solid var(--sc-mint);
+    border-radius: 4px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  #schol-page .sc-apply-card.sc-ug { border-top-color: var(--sc-navy); }
+  #schol-page .sc-apply-card h3 { font-size: 28px; margin-bottom: 4px; }
+  #schol-page .sc-apply-card p { color: var(--sc-muted); flex: 1; }
+  #schol-page .sc-apply-card .sc-btn { align-self: flex-start; margin-top: 12px; }
+
+  /* ---------- Before you apply ---------- */
+  #schol-page .sc-prep-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  #schol-page .sc-panel {
+    background: var(--sc-mint-pale);
+    border: 1px solid var(--sc-line);
+    border-radius: 4px;
+    padding: 30px 32px;
+  }
+  #schol-page .sc-panel h3 { font-size: 22px; margin-bottom: 18px; }
+  #schol-page .sc-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+  }
+  #schol-page .sc-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px; top: 6px;
+    width: 12px; height: 7px;
+    border-left: 2px solid var(--sc-navy);
+    border-bottom: 2px solid var(--sc-navy);
+    transform: rotate(-45deg);
+  }
+  #schol-page .sc-checklist li::before {
+    left: 0; top: 4px;
+    width: 15px; height: 15px;
+    border: 1.5px solid var(--sc-plum);
+    border-radius: 2px;
+    transform: none;
+    background: #fff;
+  }
+  #schol-page .sc-note {
+    font-size: 14px;
+    color: var(--sc-muted);
+    border-top: 1px solid var(--sc-line);
+    padding-top: 14px;
+    margin: 8px 0 0;
+  }
+  #schol-page .sc-contact {
+    margin-top: 24px;
+    border-left: 3px solid var(--sc-mint);
+    padding: 4px 0 4px 18px;
+    color: var(--sc-muted);
+  }
+  #schol-page .sc-contact p { margin: 0; }
+
+  /* ---------- Scholarship toolbar ---------- */
+  #schol-page .sc-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  #schol-page .sc-search {
+    flex: 1 1 260px;
+    font: inherit;
+    font-size: 15px;
+    padding: 12px 14px;
+    border: 1px solid var(--sc-line);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--sc-ink);
+  }
+  #schol-page .sc-search:focus { outline: 2px solid var(--sc-mint); outline-offset: 0; border-color: var(--sc-navy); }
+  #schol-page .sc-filters { display: flex; border: 1px solid var(--sc-navy); border-radius: 4px; overflow: hidden; }
+  #schol-page .sc-chip {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 11px 16px;
+    border: 0;
+    background: #fff;
+    color: var(--sc-navy);
+    cursor: pointer;
+  }
+  #schol-page .sc-chip + .sc-chip { border-left: 1px solid var(--sc-navy); }
+  #schol-page .sc-chip[aria-pressed="true"] { background: var(--sc-navy); color: #fff; }
+  #schol-page .sc-count { width: 100%; margin: 0; font-size: 14px; color: var(--sc-muted); }
+
+  /* ---------- Scholarship cards ---------- */
+  #schol-page .sc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+  #schol-page .sc-card {
+    background: var(--sc-card);
+    border: 1px solid var(--sc-line);
+    border-radius: 4px;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  #schol-page .sc-card:hover { border-color: var(--sc-teal); }
+  #schol-page .sc-card[open] { border-color: var(--sc-navy); box-shadow: 0 10px 28px rgba(20, 42, 82, .10); }
+  #schol-page .sc-card summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 48px 18px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  #schol-page .sc-card summary::-webkit-details-marker { display: none; }
+  #schol-page .sc-card summary:focus-visible { outline: 2px solid var(--sc-mint); outline-offset: 2px; }
+  #schol-page .sc-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.25;
+    color: var(--sc-navy);
+  }
+  #schol-page .sc-tag { font-size: 14px; color: var(--sc-muted); line-height: 1.4; }
+  #schol-page .sc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--sc-slate);
+  }
+  #schol-page .sc-badge::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sc-teal);
+    box-shadow: 0 0 0 3px var(--sc-mint-soft);
+  }
+  #schol-page .sc-toggle {
+    position: absolute;
+    right: 20px; top: 24px;
+    width: 9px; height: 9px;
+    border-right: 2px solid var(--sc-navy);
+    border-bottom: 2px solid var(--sc-navy);
+    transform: rotate(45deg);
+    transition: transform .2s ease;
+  }
+  #schol-page .sc-card[open] .sc-toggle { transform: rotate(-135deg); top: 28px; }
+  #schol-page .sc-body {
+    font-size: 15px;
+    color: #2C3550;
+    border-top: 1px solid var(--sc-line);
+    margin: 0 20px;
+    padding: 16px 0 20px;
+  }
+  #schol-page .sc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  #schol-page .sc-actions .sc-btn { font-size: 14px; padding: 10px 14px; }
+  #schol-page .sc-empty {
+    display: none;
+    color: var(--sc-muted);
+    padding: 30px 0;
+  }
+
+  /* ---------- Give ---------- */
+  #schol-page #sc-give {
+    background: var(--sc-navy);
+    margin-top: 72px;
+    padding-bottom: 56px;
+  }
+  #schol-page #sc-give .sc-section-head h2 { color: #fff; }
+  #schol-page #sc-give .sc-section-head p { color: #C9D4E6; }
+  #schol-page #sc-give .sc-eyebrow { color: var(--sc-mint); }
+  #schol-page .sc-give-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  #schol-page .sc-give-card {
+    background: var(--sc-card);
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  #schol-page .sc-give-card h3 { font-size: 22px; }
+  #schol-page .sc-give-card p { color: var(--sc-muted); margin: 0; }
+  #schol-page .sc-give-card .sc-btn { margin-top: auto; }
+  #schol-page .sc-venmo img { width: 110px; height: auto; display: block; border-radius: 4px; border: 1px solid var(--sc-line); }
+  #schol-page .sc-address {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--sc-ink);
+    line-height: 1.5;
+    margin-top: auto;
+  }
+  #schol-page .sc-pennies {
+    margin-top: 20px;
+    background: var(--sc-mint-soft);
+    border-radius: 4px;
+    padding: 26px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 28px;
+  }
+  #schol-page .sc-pennies-text { flex: 1 1 380px; }
+  #schol-page .sc-pennies h3 { font-size: 22px; margin-bottom: 6px; }
+  #schol-page .sc-pennies p { margin: 0; color: var(--sc-slate); }
+  #schol-page .sc-live {
+    display: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: var(--sc-navy);
+    color: var(--sc-mint);
+    padding: 4px 9px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  #schol-page .sc-endow {
+    margin: 28px 0 0;
+    color: #C9D4E6;
+    max-width: 760px;
+  }
+  #schol-page .sc-endow strong { color: #fff; }
+  #schol-page .sc-endow a { color: var(--sc-mint); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    #schol-page .sc-grid { grid-template-columns: repeat(2, 1fr); }
+    #schol-page .sc-give-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 680px) {
+    #schol-page .sc-hero { padding: 44px 20px 40px 68px; }
+    #schol-page .sc-hero::before { left: 16px; width: 32px; }
+    #schol-page .sc-stats { grid-template-columns: 1fr; }
+    #schol-page .sc-stat { border-right: 0; border-bottom: 1px solid var(--sc-line); padding: 16px 20px; }
+    #schol-page .sc-stat:last-child { border-bottom: 0; }
+    #schol-page .sc-jump { padding: 12px 20px; gap: 4px 18px; }
+    #schol-page .sc-section { padding: 48px 20px 0; }
+    #schol-page .sc-apply-grid,
+    #schol-page .sc-prep-grid,
+    #schol-page .sc-grid { grid-template-columns: 1fr; }
+    #schol-page .sc-apply-card, #schol-page .sc-panel { padding: 24px; }
+    #schol-page .sc-filters { width: 100%; }
+    #schol-page .sc-chip { flex: 1; }
+  }
+</style>
+
+<div id="schol-page">
+
+  <!-- ========== Hero ========== -->
+  <header class="sc-hero">
+    <span class="sc-eyebrow">2027 Scholarship Season</span>
+    <h2>SPJST Scholarships</h2>
+    <p class="sc-hero-sub">Helping SPJST members further their education and reach their career goals since 1982.</p>
+    <div class="sc-deadline">
+      <small>Application deadline</small>
+      <strong>February 1, 2027</strong>
+    </div>
+  </header>
+
+  <div class="sc-stats">
+    <div class="sc-stat"><strong>Since 1982</strong><span>Supporting SPJST students</span></div>
+    <div class="sc-stat"><strong class="sc-named-count">26</strong><span>Named scholarships</span></div>
+    <div class="sc-stat"><strong>100%</strong><span>Of 100 Pennies gifts go to scholarships</span></div>
+  </div>
+
+  <nav class="sc-jump" aria-label="On this page">
+    <a href="#sc-apply">Apply</a>
+    <a href="#sc-prep">Before You Apply</a>
+    <a href="#sc-named">Our Scholarships</a>
+    <a href="#sc-give">Give</a>
+  </nav>
+
+  <!-- ========== Apply ========== -->
+  <section class="sc-section" id="sc-apply">
+    <div class="sc-section-head">
+      <span class="sc-eyebrow">Step 1</span>
+      <h2>Choose Your Application</h2>
+      <div class="sc-bar"></div>
+    </div>
+    <div class="sc-apply-grid">
+      <div class="sc-apply-card">
+        <span class="sc-eyebrow">High school seniors</span>
+        <h3>Freshman</h3>
+        <p>For SPJST members graduating high school in May or June 2027 and starting college in the fall.</p>
+        <a class="sc-btn sc-btn-primary" href="https://form.jotform.com/spjst_life/2027-fr-scholarship-app" target="_blank" rel="noopener">Start Freshman Application <span class="sc-arrow">→</span></a>
+      </div>
+      <div class="sc-apply-card sc-ug">
+        <span class="sc-eyebrow">College students</span>
+        <h3>Undergraduate</h3>
+        <p>For SPJST members who are enrolled in college now or have been enrolled before.</p>
+        <a class="sc-btn sc-btn-primary" href="https://form.jotform.com/spjst_life/2027-scholarship-app-UG" target="_blank" rel="noopener">Start Undergraduate Application <span class="sc-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Before you apply ========== -->
+  <section class="sc-section" id="sc-prep">
+    <div class="sc-section-head">
+      <span class="sc-eyebrow">Step 2</span>
+      <h2>Before You Apply</h2>
+      <div class="sc-bar"></div>
+    </div>
+    <div class="sc-prep-grid">
+      <div class="sc-panel">
+        <h3>Who can apply</h3>
+        <ul class="sc-list">
+          <li>SPJST members with an active insurance certificate in force for at least one year as of February 1, 2027 (annuities must be at least $10,000)</li>
+          <li>Full-time students, enrolled in at least 12 credit hours per semester</li>
+          <li>Attending an accredited two- or four-year college, university or technical school</li>
+          <li><strong>Undergraduates:</strong> you must not have received an SPJST Scholarship before (State/District Merit and State Royalty Scholarships don't count)</li>
+        </ul>
+        <p class="sc-note">The full requirements are listed at the top of each application.</p>
+      </div>
+      <div class="sc-panel">
+        <h3>Have these ready</h3>
+        <ul class="sc-list sc-checklist">
+          <li>Your SPJST certificate number</li>
+          <li>Your expected graduation date</li>
+          <li>One reference who isn't related to you: their name, email and phone number</li>
+          <li>Your transcript, signed and/or stamped by a school official (high school for freshmen, college for undergraduates)</li>
+          <li><strong>Freshmen:</strong> your SAT or ACT score report with your full name on it, <em>or</em> official confirmation from your college that it doesn't require test scores</li>
+          <li>A clear, close-up headshot photo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sc-contact">
+      <p>Questions? Contact Sandra Dubcak at <a href="tel:2547731575">254-773-1575, ext. 127</a> or <a href="mailto:sandrad@spjst.com">sandrad@spjst.com</a>.</p>
+    </div>
+  </section>
+
+  <!-- ========== Our Scholarships ========== -->
+  <section class="sc-section" id="sc-named">
+    <div class="sc-section-head">
+      <span class="sc-eyebrow">Named Scholarships</span>
+      <h2>Our Scholarships</h2>
+      <div class="sc-bar"></div>
+      <p>SPJST Scholarships are funded by the SPJST Home Office and by the generosity of our members. Many carry the names of people who shaped SPJST, their lodges and their communities. Tap a name to read their story.</p>
+    </div>
+
+    <div class="sc-toolbar">
+      <input class="sc-search" type="search" placeholder="Search by name, lodge or city…" aria-label="Search scholarships">
+      <div class="sc-filters">
+        <button type="button" class="sc-chip" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="sc-chip" data-filter="donate" aria-pressed="false">Accepting donations</button>
+      </div>
+      <p class="sc-count" aria-live="polite"></p>
+    </div>
+
+    <div class="sc-grid">
+
+      <details class="sc-card" name="sc-schol" data-sort="Chandler">
+        <summary>
+          <span class="sc-name">Susan Chandler</span>
+          <span class="sc-tag">Curator, Czech Heritage Museum &amp; Genealogy Center, Temple</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Susan Chandler served as the curator and director of Temple's Czech Heritage Museum and Genealogy Center from 2014 until her untimely death on September 4, 2022. Throughout her service to the museum, Susan not only curated artifacts, but cultivated love-forged friendships and nurtured knowledge. Widely recognized for her passion for Czech history and culture, Susan was also a devoted mother to her four daughters, Grace Anne, Lauren, Marie, and Sarah, and a friend to many. The daughter of Charles and Retta Chandler, Susan attended Texas A&amp;M and UT-Arlington Universities. She shared her talents as a communicator working for the Fort Worth Star-Telegram, Fort Worth Police Department, and the Temple Daily Telegram before establishing her lasting presence at the Czech Heritage Museum and Genealogy Center.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Chernosky">
+        <summary>
+          <span class="sc-name">Charles H. Chernosky</span>
+          <span class="sc-tag">SPJST President, 1925–1948</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Born in 1885 in Rocky Creek near Bellville, Charles H. Chernosky served as SPJST President from 1925 to 1948. An honor graduate of the University of Texas at Austin, Charles helped organize the University's first Czech club, Cechie, in 1909. Charles received his law degree in 1912 and promptly went about opening his law office in Rosenberg. A champion of community causes, he was elected Judge of Fort Bend County in 1918. A tireless supporter of civic causes, Charles was also an outspoken advocate for an independent Czechoslovak nation. In 1929, Texas Governor Moody selected Judge Chernosky as one of the first nine members of the newly established State Board of Education. Charles and his wife Vlasta Flyt Chernosky were married in 1912 and had four children, Charles Henry Jr., Juanita Eulalia, Joyce Clarina, and James Eugene. Charles passed away in 1963.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="District Six">
+        <summary>
+          <span class="sc-name">SPJST District Six</span>
+          <span class="sc-tag">Endowed by the members of District Six</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>The SPJST District Six Scholarship is funded annually thanks to the endowment established by members of SPJST District Six. The scholarship is presented to a graduating senior on the basis of academic stature and activity within the lodge and/or district.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Foyt" data-donate>
+        <summary>
+          <span class="sc-name">Vernell Foyt</span>
+          <span class="sc-tag">Lodge 88, Houston · Entertainment Committee chair</span>
+          <span class="sc-badge">Accepting donations</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Vernell Foyt was passionate about volunteering at SPJST Lodge 88, Houston, and she and her husband, Rudy, shared many "two steps" at the lodge hall before his passing. Vernell was on the Rules and Regulations Committee, treasurer of the Birthday Club Sisters, bingo volunteer, a member of the Swimming Pool Committee, and chair of the Entertainment Committee. As the head of the Entertainment Committee, Ms. Foyt enjoyed a special relationship with every band that performed at Lodge 88 as well as members of the lodge.</p>
+          <div class="sc-actions">
+            <a class="sc-btn sc-btn-outline" href="stories/vernell-foyt-scholarship-fund.html">Read the full story →</a>
+            <a class="sc-btn sc-btn-give" href="https://www.paypal.com/donate/?hosted_button_id=QZ2U6SA993W64" target="_blank" rel="noopener">Give to this fund</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Hanus">
+        <summary>
+          <span class="sc-name">Otto Hanus</span>
+          <span class="sc-tag">First SPJST librarian &amp; archivist, 1971–1987</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>A member of SPJST Lodge 66, Waco, Otto Hanus was the first librarian, archivist, and curator of the SPJST Library, Archives and Museum serving in that capacity from 1971 until his death in 1987. Mr. Hanus earned the admiration and respect of the SPJST leadership and membership for the tireless and meticulous care he devoted in overseeing and maintaining the SPJST collection.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Hegwood" data-donate>
+        <summary>
+          <span class="sc-name">Helen Fusig &amp; King B. Hegwood</span>
+          <span class="sc-tag">Lodge 88, Houston · the "Popcorn King" and a Million Dollar Producer</span>
+          <span class="sc-badge">Accepting donations</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>King B. and Helen Fusig Hegwood were active members of SPJST Lodge 88, Houston for many years. King was a member of the Men's Club, and for more than 40 years, he popped popcorn at the SPJST hall at Thursday night bingos. This earned him the title of "Popcorn King." Helen served the Home Office as District Five State Field Representative from 1989 to 1998. She also served in local lodge, district, and state roles throughout her 75-year membership. Helen was an award-winning sales agent for many years, receiving the prestigious Million Dollar Producer Award each year from 1995 to 1999 and in 2001 and 2002. She will also be remembered for her beautiful voice with the Lodge 88 Czech Chorus.</p>
+          <div class="sc-actions">
+            <a class="sc-btn sc-btn-outline" href="stories/hegwood-scholarship.html">Read the full story →</a>
+            <a class="sc-btn sc-btn-give" href="https://www.paypal.com/donate/?hosted_button_id=9246QS49UEQW2" target="_blank" rel="noopener">Give to this fund</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Hejny">
+        <summary>
+          <span class="sc-name">Joe B. Hejny</span>
+          <span class="sc-tag">SPJST Vice President, 1956–1978</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Joe B. Hejny served as SPJST Vice President from 1956 until his death in 1978. Mr. Hejny's passion for SPJST and its fraternal mission fueled Societal growth during his tenure as head of SPJST's marketing and sales area. It was during Mr. Hejny's service to SPJST that the SPJST Youth Program became a fully-integrated component of SPJST's statewide fraternal outreach programming.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Klinkovsky">
+        <summary>
+          <span class="sc-name">Frank E. Klinkovsky, Sr.</span>
+          <span class="sc-tag">Lodge 47, Seaton · District Two Director</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Known for always being concerned about others, Frank E. Klinkovsky, Sr. was a man of service to his country, community, and family. He spent most of his adult life serving SPJST as District Two Youth Counselor, State Fraternal Activities Coordinator, life insurance agent, and District Two Director. He held many positions at SPJST Lodge 47, Seaton where he was a lifelong member.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Krizan">
+        <summary>
+          <span class="sc-name">Johnnie R. Krizan</span>
+          <span class="sc-tag">Lodge 6, Cottonwood · District Three Director, 1997–2014</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Johnnie R. Krizan served as SPJST District Three Director from 1997 until his untimely death in 2014. A member of Lodge 6, Cottonwood and graduate of Baylor University, Mr. Krizan also served as president of SPJST Lodge 6, Cottonwood and was a top-producing SPJST sales agent for more than 40 years. He was a strong community booster and an avid Texas Rangers fan and member of the Baylor University Alumni Association.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Kubena">
+        <summary>
+          <span class="sc-name">J.R. Kubena</span>
+          <span class="sc-tag">"Father of SPJST" · SPJST Secretary, 1897–1938</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Known as the "Father of SPJST," J. R. Kubena was a member of SPJST Lodge 1, Fayetteville and served as SPJST Secretary from 1897 until his death in 1938, administering the affairs of SPJST out of a single room in his general store in Fayetteville. A civic leader with a keen sense of obligation to others, J.R. Kubena served as a member of the Texas House of Representatives for three terms — in 1903, 1905, and 1907. He also served for a term as mayor of Fayetteville. He was a member of the governing body — today known as the Board of Governors — at what was then Texas A&amp;M College.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Lostak" data-donate>
+        <summary>
+          <span class="sc-name">Tommie &amp; Gladys Lostak</span>
+          <span class="sc-tag">Lodge 139, Danbury · Lodge Secretary for 36 years</span>
+          <span class="sc-badge">Accepting donations</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>A devoted fraternalist, Tommie served as secretary of SPJST Lodge 139, Danbury for 36 years and on the Publication Committee for 12 years. He hosted many annual SPJST district meetings at the Lone Pine in Danbury. Tommie was a farmer and rancher. When Tommie wasn't working, he could be found playing with his children, playing on his softball team, or hunting. Tommie's wife, Gladys, was a hard worker as well. She balanced many roles as Tommie's supporter — always by his side, a mom and owner of a kolache shop in Danbury for several years.</p>
+          <div class="sc-actions">
+            <a class="sc-btn sc-btn-outline" href="stories/lostak-scholarship.html">Read the full story →</a>
+            <a class="sc-btn sc-btn-give" href="https://www.paypal.com/donate/?hosted_button_id=EXT44JN3QYQ84" target="_blank" rel="noopener">Give to this fund</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Marek, Edward">
+        <summary>
+          <span class="sc-name">Edward L. Marek</span>
+          <span class="sc-tag">SPJST President, 1949–1969</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Edward L. Marek was the sixth President of SPJST and served in that capacity from 1949 through 1969. Prior to that, Mr. Marek served as Vice President from 1945 through 1949 and as Financial Secretary from 1933 until 1943.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Marek, Myles" data-donate>
+        <summary>
+          <span class="sc-name">Myles Marek</span>
+          <span class="sc-tag">Lodge 79, Corpus Christi · WWII Navy veteran</span>
+          <span class="sc-badge">Accepting donations</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Myles Marek was a member of SPJST Lodge 79, Corpus Christi. He served his country in the United States Navy during World War II and retired from Sun Oil in 1972 as a senior gas coordinator. Both Myles and his wife, Clarice, were strong supporters of the SPJST Scholarship Program.</p>
+          <div class="sc-actions">
+            <a class="sc-btn sc-btn-outline" href="stories/myles-marek-endowed-scholarship-fund.html">Read the full story →</a>
+            <a class="sc-btn sc-btn-give" href="https://www.paypal.com/donate/?hosted_button_id=D8G4RH2UCMX26" target="_blank" rel="noopener">Give to this fund</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Marek, Ronnie">
+        <summary>
+          <span class="sc-name">Ronnie Gene Marek</span>
+          <span class="sc-tag">Aerospace engineer &amp; tractor restorer from Meeks</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Ronnie Marek grew up on the family farm in Meeks and had a lifelong love of farming and tractors. But after graduating high school, he decided to pursue a career in aircraft engineering. He was known for being detail oriented, methodically developing electrical wiring installation solutions across a multitude of production and retrofit aerospace programs. Ron's fingerprints are on many airframes both commercial and defense. The most notable are the Boeing 777 airliner and Northrop Grumman B-2 bomber, as well as the Lockheed Martin F-16 and F-22 fighter jets. Ron and his wife Lenese also volunteered much of their time to the Texas Early Day Tractor and Engine Association of Temple, Texas for more than 20 years, assisting with cleanup and proudly displaying their restored tractors and farm implements. Ronnie also took a keen interest in International Harvester Lone Star Chapter 25 and was involved in chapter activities for more than 20 years.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Morris">
+        <summary>
+          <span class="sc-name">Nick A. Morris</span>
+          <span class="sc-tag">SPJST President, 1969–1984</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Nick A. Morris served as SPJST President from 1969 until 1984. Prior to that, he served as SPJST Věstník Editor for six years. It was during his tenure as Editor that Mr. Morris started the SPJST library collection which would become the cornerstone of the SPJST Library, Archives and Museum. It was also during Mr. Morris' presidency that the SPJST Home Office relocated from the location on Central Avenue in Temple to its new headquarters at 520 North Main Street.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Pech">
+        <summary>
+          <span class="sc-name">Birdie Hilsher Pech</span>
+          <span class="sc-tag">Lodge 88, Houston · Youth Movement pioneer</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Birdie Hilsher Pech of SPJST Lodge 88, Houston was a driving force behind SPJST's Youth Movement in the early 1950s. In a Věstník column that Sister Pech wrote in 1953, she says, "If you think that the grass is just a little greener on the other side of the fence, better think twice. Our SPJST has all of the green grass. It is up to us to keep it watered now and keep it growing bigger and better all the time. Keep our youth and keep them entertained for a greater future of our SPJST, for without them, we would perish as grass would die without water."</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Petr">
+        <summary>
+          <span class="sc-name">Bessie Petr</span>
+          <span class="sc-tag">"Mama Bessie" · Lodge 84, Dallas Youth Leader for 63 years</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Bessie Petr was the longtime and devoted youth leader and District Youth Counselor of SPJST District Three. She was extremely active in SPJST and served as Lodge 84, Dallas Youth Leader for 63 years. Generations of children grew into young adults under her guidance, and lovingly referred to her as Mama Bessie. A devout Catholic and member of St. Thomas Aquinas Church, Bessie was known throughout the Greater Dallas region for culinary skills and Bessie's Catering.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Pflughaupt" data-donate>
+        <summary>
+          <span class="sc-name">Larry W. Pflughaupt</span>
+          <span class="sc-tag">Lodge 88, Houston · District Five Director, 2000–2016</span>
+          <span class="sc-badge">Accepting donations</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Larry W. Pflughaupt was a 60-year member of SPJST and served as SPJST District Five Director from 2000 to 2016. His affinity for SPJST goes back to when he was 15 and was honored as the first Prince of Lodge 88, Houston – a royal title which he earned at an early age and one which set the standard for what was to follow. A member of SPJST Lodge 88, Houston, Mr. Pflughaupt served as lodge president and along with his wife, Dorothy, was an avid supporter of the SPJST Youth Program at the lodge, district, and state levels.</p>
+          <div class="sc-actions">
+            <a class="sc-btn sc-btn-outline" href="stories/pflughaupt-scholarship.html">Read the full story →</a>
+            <a class="sc-btn sc-btn-give" href="https://www.paypal.com/donate?hosted_button_id=FQQSSBXVNGQ4S" target="_blank" rel="noopener">Give to this fund</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Pokladnik">
+        <summary>
+          <span class="sc-name">Cyrill "Sid" Pokladnik</span>
+          <span class="sc-tag">Lodge 84, Dallas · District Three Director for 32 years</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>A successful businessman and lifelong SPJST supporter, Cyrill "Sid" Pokladnik served as president of SPJST Lodge 84, Dallas, District Three President, director of Dallas Czech Concert Orchestra, a founding director of S.P.J.S.T. Rest Homes, and for 32 years as District Three Director. In addition to his involvement with SPJST, Mr. Pokladnik served as president of Texas Fraternal Congress and as president of the National Fraternal Congress of America Fraternal Section.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Sefcik" data-donate>
+        <summary>
+          <span class="sc-name">Rudy &amp; Maxine Sefcik</span>
+          <span class="sc-tag">Věstník Editor, 1968–1992 · Westfest emcees</span>
+          <span class="sc-badge">Accepting donations</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Rudy and Maxine Sefcik – lifelong SPJST members – earned the respect and admiration of SPJST members and the Texas Czech community statewide for their passion in promoting all things Czech. Rudy Sefcik, who was president of SPJST Lodge 88, Houston and SPJST Lodge 54, West, served as SPJST Věstník Editor from 1968 until 1992. Throughout his tenure as Věstník Editor, Rudy's wife Maxine remained his faithful assistant, providing backup support in the newspaper's composition. Perpetual community boosters, Rudy and Maxine also served as master of ceremonies for the Westfest cultural entertainment program from its inception. Following Rudy's passing in 1993, Maxine continued to serve as event co-emcee until health reasons prompted her to step down in 2018. As a lasting testament to Brother Rudy and Sister Maxine's commitment to all things Czech, the Sefcik Amphitheatre on the Westfest fairgrounds is named in their honor.</p>
+          <div class="sc-actions">
+            <a class="sc-btn sc-btn-outline" href="stories/sefcik-scholarship-fund.html">Read the full story →</a>
+            <a class="sc-btn sc-btn-give" href="https://www.paypal.com/donate/?hosted_button_id=9ALYVBUP23M7L" target="_blank" rel="noopener">Give to this fund</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Trcalek, Ben and Martha">
+        <summary>
+          <span class="sc-name">Ben &amp; Martha Trcalek</span>
+          <span class="sc-tag">Lodge 17, New Tabor · Cooks Point cattle ranchers</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Ben and Martha Trcalek were longtime members of SPJST Lodge 17, New Tabor and residents of Cooks Point where they engaged in cattle ranching. Ben and Martha were avid fans of Texas A&amp;M University athletic teams and were both active in the community and strong supporters of numerous civic organizations, including the VFW, Cooks Point Community Center, Caldwell Brethren Church, and SPJST.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Trcalek, Ben Jr">
+        <summary>
+          <span class="sc-name">Ben F. Trcalek, Jr.</span>
+          <span class="sc-tag">Lodge 17, New Tabor · Rancher, businessman &amp; civic leader</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Ben F. Trcalek, Jr. was a member of SPJST Lodge 17, New Tabor for over 60 years. A native of Caldwell, Texas, Mr. Trcalek was a rancher, businessman, investor, and civic leader. He attended Texas Christian University on a football scholarship and was an avid sports enthusiast and a past football coach. Board member and past treasurer of the Czech Educational Foundation of Texas (CEFT), Mr. Trcalek was on the ground floor of the University of Texas Czech Chair and A&amp;M Fellowship. He was life member of the Houston Livestock Show and Rodeo, member of Burleson County Czech Heritage Society, and a strong supporter of the Texas A&amp;M 12th Man Foundation. He owned and operated with his parents, Rocking T Ranch, in and around Cooks Point, and was a founding member of Peoples National Bank.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Victorick" data-donate>
+        <summary>
+          <span class="sc-name">Victorick Family</span>
+          <span class="sc-tag">Honoring Janice &amp; Ashley Victorick of Snook</span>
+          <span class="sc-badge">Accepting donations</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>The Victorick Family Scholarship honors the memories of Janice and Ashley Victorick, wife and son of longtime SPJST District One Director Donnie Victorick of Snook. A loving wife and a devoted mother to daughter Melissa and son Ashley, Janice passed away in 2021. Helping to care for others, working to make a positive difference, and cooking were the things she loved to do. Janice was the rock for Donnie and supported him in all facets of his career. Janice's unwavering support and belief in Donnie built him up to believe in himself and the causes that he continues to champion. Ashley, who passed away in 2022, was a lifelong member of SPJST and in recent years served as District Five President and as Secretary of the SPJST Finance Committee. As a member of Lodge 88, Houston, Ashley served in many key roles including Chairman of the Board of Trustees, Treasurer, and as a member of the Bingo Committee.</p>
+          <div class="sc-actions">
+            <a class="sc-btn sc-btn-outline" href="stories/victorick-scholarship-fund.html">Read the full story →</a>
+            <a class="sc-btn sc-btn-give" href="https://www.paypal.com/donate/?hosted_button_id=EYJAGSGSSRTKQ" target="_blank" rel="noopener">Give to this fund</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Wentrcek">
+        <summary>
+          <span class="sc-name">Ernest A. Wentrcek, Sr.</span>
+          <span class="sc-tag">Founder &amp; president, Lodge 189, Bryan-College Station</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Ernest A. Wentrcek, Sr. of Bryan was a founding member and president of SPJST Lodge 189, Bryan-College Station and a 20-year member of the SPJST Finance Committee. Mr. Wentrcek attended Texas A&amp;M University and served as Associate Director for Business Affairs of Texas Engineering Extension Service. He owned two family businesses: W&amp;W General Contractors, Inc. and W&amp;W Real Estate Company and was one of the organizers of the First Federal Savings and Loan in Bryan.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Wuensche">
+        <summary>
+          <span class="sc-name">Denisse Wuensche</span>
+          <span class="sc-tag">Lodge 48, Beyersville · Youth leader &amp; camp counselor</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Denisse Wuensche of SPJST Lodge 48, Beyersville loved helping children and teaching them new things. She loved volunteering and serving as Lodge 48 Youth Leader and SPJST Camp counselor. An active member of Taylor Brethren Church, Denisse was also a Sunday school teacher, Brethren Youth Fellowship sponsor, junior sermon leader, and Vacation Bible School teacher.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Yates">
+        <summary>
+          <span class="sc-name">Gladys Yates</span>
+          <span class="sc-tag">Lodge 66, Waco · State Fraternal Activities Coordinator</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>An active member of SPJST Lodge 66, Waco, Gladys Yates was a beloved SPJST State Fraternal Activities Coordinator who served from 2001 until her untimely death in 2004. As a testament to her fraternal commitment, Ms. Yates also served as District Three President and as District Three Assistant Youth Counselor for many years.</p>
+        </div>
+      </details>
+
+
+      <details class="sc-card" name="sc-schol" data-sort="Gustafson">
+        <summary>
+          <span class="sc-name">Ervin "Curly" &amp; Helen Ray Gustafson</span>
+          <span class="sc-tag">Elgin · Two scholarships awarded in their names</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Helen Ray (Newstrom) Gustafson was born January 16, 1933, in Taylor and graduated from Taylor High School in 1951. On April 22, 1956, she married Ervin Edgar "Curly" Gustafson at Bethlehem Lutheran Church in Lund. Over the years Helen worked for Taylor Bedding Manufacturing, Southwestern Camera in Houston, Nash Phillips Copus in Austin, and the Elgin Bank of Texas. Curly passed away in 1994, and Helen, a longtime Elgin resident, passed away on January 8, 2023. She asked that memorials in her name be given to the SPJST Scholarship Fund, and two scholarships are now awarded in the Gustafsons' honor.</p>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Pajestka">
+        <summary>
+          <span class="sc-name">Frank E. Pajestka, Jr.</span>
+          <span class="sc-tag">Lodge 80, Holland · Educator &amp; school counselor</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Established in 2024 by the members of SPJST Lodge 80, Holland, this scholarship honors Frank E. Pajestka, Jr., a lifelong member of the lodge who served as its Fraternal Activities Coordinator and Vice President. For several years one of SPJST's top insurance salesmen, Frank spent nearly four decades in education as a math teacher and counselor for Belton ISD and Academy ISD, helping countless students navigate their teen years. He worked tirelessly on Lodge 80's community activities, especially bingo, and was a devoted member of St. Stephen Catholic Church in Salado.</p>
+          <div class="sc-actions">
+            <a class="sc-btn sc-btn-outline" href="stories/pajestka-scholarship.html">Read the full story →</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="sc-card" name="sc-schol" data-sort="Vaculik">
+        <summary>
+          <span class="sc-name">Jan &amp; Marcela Vaculik</span>
+          <span class="sc-tag">Lodge 54, West · Publishers of the Czech newspaper Hospodář</span>
+          <span class="sc-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="sc-body">
+          <p>Jan and Marcela Vaculik were longtime members of SPJST Lodge 54, West, and together published the Czech-language newspaper Hospodář for more than two decades. Born in Slovakia, Jan served Lodge 54 as its Czech Reporter for over 40 years, taught Czech classes, and was a charter member and gymnastics instructor of West Sokol. Marcela, a pharmacist from Chomutov, Czechoslovakia, came to Texas as a refugee in 1980 and married Jan the following spring. She drove a bus for West ISD, was a director of the McLennan/Hill County Czech Heritage Society, and was a charter member of West Sokol.</p>
+          <div class="sc-actions">
+            <a class="sc-btn sc-btn-outline" href="stories/vaculik-scholarship.html">Read the full story →</a>
+          </div>
+        </div>
+      </details>
+    </div>
+    <p class="sc-empty">No scholarships match your search.</p>
+  </section>
+
+  <!-- ========== Give ========== -->
+  <section class="sc-section" id="sc-give">
+    <div class="sc-section-head">
+      <span class="sc-eyebrow">Give</span>
+      <h2>Support the Scholarship Program</h2>
+      <div class="sc-bar"></div>
+      <p>Donations to the SPJST Scholarship Fund are always welcome and appreciated. To give to a specific named scholarship, use its "Give to this fund" button above.</p>
+    </div>
+
+    <div class="sc-give-grid">
+      <div class="sc-give-card">
+        <h3>Credit card</h3>
+        <p>Give securely online through PayPal.</p>
+        <a class="sc-btn sc-btn-give" href="https://www.paypal.com/donate/?hosted_button_id=EBHRHH9R6CP6E" target="_blank" rel="noopener">Donate with PayPal</a>
+      </div>
+      <div class="sc-give-card sc-venmo">
+        <h3>Venmo</h3>
+        <p>Scan the code or find us at <strong>@spjst</strong>.</p>
+        <a href="https://account.venmo.com/u/spjst" target="_blank" rel="noopener"><img src="https://spjst.org/wp-content/uploads/2023/03/Venmo-account-386x600.png" alt="Venmo QR code for @spjst"></a>
+      </div>
+      <div class="sc-give-card">
+        <h3>By mail</h3>
+        <p>Mail your contribution to:</p>
+        <address class="sc-address">100 Pennies Scholarship Fund Drive<br>c/o SPJST Home Office<br>P.O. Box 100<br>Temple, Texas 76503</address>
+      </div>
+    </div>
+
+    <div class="sc-pennies">
+      <div class="sc-pennies-text">
+        <h3>The 100 Pennies Drive <span class="sc-live">Happening now</span></h3>
+        <p>Every year from <strong>October 1 to March 31</strong>, SPJST's 100 Pennies Drive raises money for member scholarships. Donations are tax-deductible, and 100% of every gift goes toward scholarships.</p>
+      </div>
+      <a class="sc-btn sc-btn-outline" href="https://spjst.org/100pennies/">Learn more →</a>
+    </div>
+
+    <p class="sc-endow"><strong>Want to honor someone with a named scholarship?</strong> New endowed scholarships can be established with a gift of $25,000 or more. Contact SPJST President/CEO Brian Vanicek at <a href="tel:2547731575">254-773-1575</a> or <a href="mailto:vanicek@spjst.com">vanicek@spjst.com</a>.</p>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var page = document.getElementById('schol-page');
+  if (!page) return;
+
+  var grid = page.querySelector('.sc-grid');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.sc-card'));
+  var search = page.querySelector('.sc-search');
+  var chips = page.querySelectorAll('.sc-chip');
+  var count = page.querySelector('.sc-count');
+  var empty = page.querySelector('.sc-empty');
+  var filter = 'all';
+
+  // Keep cards in last-name order no matter where new ones are pasted
+  cards.sort(function (a, b) {
+    return (a.dataset.sort || '').localeCompare(b.dataset.sort || '');
+  });
+  cards.forEach(function (card) { grid.appendChild(card); });
+
+  function update() {
+    var q = search.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (card) {
+      var matchText = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
+      var matchFilter = filter === 'all' || card.hasAttribute('data-donate');
+      var visible = matchText && matchFilter;
+      card.hidden = !visible;
+      if (visible) shown++;
+    });
+    count.textContent = 'Showing ' + shown + ' of ' + cards.length + ' scholarships';
+    empty.style.display = shown ? 'none' : 'block';
+  }
+
+  // Keep the "Named scholarships" stat in step with the cards
+  var named = page.querySelector('.sc-named-count');
+  if (named) named.textContent = cards.length;
+
+  search.addEventListener('input', update);
+  Array.prototype.forEach.call(chips, function (chip) {
+    chip.addEventListener('click', function () {
+      filter = chip.dataset.filter;
+      Array.prototype.forEach.call(chips, function (c) {
+        c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+      });
+      update();
+    });
+  });
+  update();
+
+  // Show "Happening now" on the 100 Pennies box during the drive (Oct 1 – Mar 31)
+  var month = new Date().getMonth();
+  if (month >= 9 || month <= 2) {
+    page.querySelector('.sc-live').style.display = 'inline-block';
+  }
+})();
+</script>
+
+</body>
+</html>
